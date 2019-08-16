@@ -1,0 +1,78 @@
+*togglesmartsearch.txt*	A simple plugin for toggling smartsearch state,
+and exposing state to be used as pleased.
+
+Version: 1.0
+Author: terrortylor (https://github.com/terrortylor)
+License: MIT License
+Repository: https://github.com/terrortylor/vim-togglesmartsearch
+Last Change: 2019/08/16
+
+CONTENTS					                       *togglesmartsearch-contents*
+
+Introduction				                     |togglesmartsearch-introduction|
+Options				    	                     |togglesmartsearch-options|
+Functions	    			                     |togglesmartsearch-functions|
+Examples	    			                     |togglesmartsearch-examples|
+
+==============================================================================
+INTRODUCTION					                   *togglesmartsearch-introduction*
+
+A simple plugin for toggling case insensative and smartcase searching on and
+off. Exposing state via function to be call in *lightline* or as you please.
+
+------------------------------------------------------------------------------
+OPTIONS						                       *togglesmartsearch-options*
+
+	g:toggle_smartsearch_state				     *g:toggle_smartsearch_state*
+		Stores the current state of toggled options. Also used to define the initial
+		state required by user.
+
+	g:toggle_smartsearch_state_on_value    *g::toggle_smartsearch_state_on_value*
+	  The value to display when toggled on, default "*aA*"
+
+	g::toggle_smartsearch_state_off_value  *g::toggle_smartsearch_state_off_value*
+	  The value to display when toggled off, default "Aa"
+==============================================================================
+FUNCTIONS					                       *togglesmartsearch-functions*
+Exposed functions for vim-togglesmartsearch.
+
+	ToggleSmartSearch#Toggle			         *ToggleSmartSearch#Toggle*
+		Toggles the state of `ignorecase` and `smartcase`.
+
+	ToggleSmartSearch#StatePretty      *ToggleSmartSearch#StatePretty*
+		Returns a string that states if the options are set or not.
+		Defaults are `*aA*` for on, `Aa` for off.
+==============================================================================
+EXAMPLES					                       *togglesmartsearch-examples*
+Display the state in *lightline*
+>
+let g:lightline = {
+      \ 'colorscheme': 'tender',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'search_case_sensativity_state', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'search_case_sensativity_state': 'ToggleSmartSearch#StatePretty'
+      \ },
+      \ }
+<
+
+Enable a toggle `on` state on start up
+>
+let g:loaded_toggle_smartsearch = 1
+<
+
+Override the state string values
+>
+let g:toggle_smartsearch_state_on_value = "YAY"
+let g:toggle_smartsearch_state_off_value = "OH NO"
+<
+
+Toggle state from command mode
+>
+:call ToggleSmartSearch#Toggle()
+<
