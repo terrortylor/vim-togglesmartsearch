@@ -27,7 +27,7 @@ endif
    autocmd!
    " if user set state to on, then toggle off and call toggle func
    autocmd VimEnter * if g:toggle_smartsearch_state
-        \ | let g:toggle_smartsearch_state = 0 | call ToggleSmartSearch#Toggle()
+        \ | let g:toggle_smartsearch_state = 0 | call togglesmartsearch#toggle()
         \ | endif
  augroup END
 

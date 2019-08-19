@@ -4,7 +4,7 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! ToggleSmartSearch#Toggle() abort
+function! togglesmartsearch#toggle() abort
   if g:toggle_smartsearch_state
     set noignorecase
     set nosmartcase
@@ -17,7 +17,7 @@ function! ToggleSmartSearch#Toggle() abort
   endif
 endfunction
 
-function! ToggleSmartSearch#StatePretty()
+function! togglesmartsearch#statepretty()
   if g:toggle_smartsearch_state
     return g:toggle_smartsearch_state_on_value
   else
