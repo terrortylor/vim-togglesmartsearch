@@ -18,7 +18,9 @@ Examples	    			                     |togglesmartsearch-examples|
 INTRODUCTION					                   *togglesmartsearch-introduction*
 
 A simple plugin for toggling case insensative and smartcase searching on and
-off. Exposing state via function to be call in *lightline* or as you please.
+off. Exposing state via function to be call in lightline or as you please.
+
+Written more as an exercise of writting a plugin that anything else.
 
 ------------------------------------------------------------------------------
 OPTIONS						                       *togglesmartsearch-options*

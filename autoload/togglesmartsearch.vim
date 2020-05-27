@@ -10,7 +10,6 @@ function! togglesmartsearch#toggle() abort
     set nosmartcase
     let g:toggle_smartsearch_state = 0
   else
-    echo "toggle on"
     set ignorecase
     set smartcase
     let g:toggle_smartsearch_state = 1
